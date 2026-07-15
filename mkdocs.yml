@@ -37,6 +37,8 @@ nav:
   - Documento de Arquitectura: arquitectura.md
   - Pruebas Funcionales: pruebas-funcionales.md
   - Organización: organizacion.md
+  - Back: back.md
+  - Front: front.md
 
 markdown_extensions:
   - admonition
