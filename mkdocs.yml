@@ -1,0 +1,52 @@
+site_name: TECH CUP 2026 - Documentación
+site_description: Documentación centralizada de la plataforma TECH CUP 2026
+site_url: https://TECH-CUP-2026-INT.github.io/TECH-CUP-2026-Docs/
+repo_url: https://github.com/TECH-CUP-2026-INT/TECH-CUP-2026-Docs
+repo_name: TECH-CUP-2026-Docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - content.action.edit
+    - content.code.copy
+    - toc.integrate
+
+nav:
+  - Inicio: index.md
+  - Análisis de Requerimientos: analisis-requerimientos.md
+  - Documento de Arquitectura: arquitectura.md
+  - Pruebas Funcionales: pruebas-funcionales.md
+  - Organización: organizacion.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
