@@ -1,0 +1,57 @@
+/* TECH CUP 2026 — paleta morado + dorado */
+
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #4A148C;
+  --md-primary-fg-color--light: #7B1FA2;
+  --md-primary-fg-color--dark: #2E0854;
+  --md-primary-bg-color: #FFFFFF;
+  --md-primary-bg-color--light: #FFFFFFCC;
+
+  --md-accent-fg-color: #B8860B;
+  --md-accent-fg-color--transparent: #B8860B1A;
+  --md-accent-bg-color: #1A1A1A;
+  --md-accent-bg-color--light: #1A1A1ACC;
+
+  --md-typeset-a-color: #6A1B9A;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #6A1B9A;
+  --md-primary-fg-color--light: #9C4DCC;
+  --md-primary-fg-color--dark: #38006B;
+  --md-primary-bg-color: #FFFFFF;
+
+  --md-accent-fg-color: #E6C155;
+  --md-accent-fg-color--transparent: #E6C1551A;
+
+  --md-typeset-a-color: #E6C155;
+
+  --md-default-bg-color: #1A1229;
+  --md-default-fg-color: #EAE0F5;
+}
+
+/* Enlaces del contenido en dorado, con hover en morado claro */
+.md-typeset a {
+  color: var(--md-typeset-a-color);
+}
+
+.md-typeset a:hover {
+  color: var(--md-primary-fg-color--light);
+}
+
+/* Resalte dorado en pestañas de navegación activas */
+.md-tabs__link--active,
+.md-nav__link--active {
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* Bordes dorados sutiles en tablas */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--md-accent-fg-color--transparent);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-primary-fg-color);
+  color: #FFFFFF;
+}
