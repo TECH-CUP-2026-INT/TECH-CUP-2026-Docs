@@ -12,6 +12,8 @@ Bienvenido al repositorio central de documentación de **TECH CUP 2026**. Este s
 | [Organización](organizacion.md)                          | Equipo, roles y forma de trabajo                          |
 | [back](back.md)                                          | back                                                      |
 | [front](front.md)                                        | front                                                     |                                       |
+| [app](app.md)                                            | app                                                       |  
+| [Entregables](entregablespruebas.md)                     | Entregables                                               | 
 
 ## Repositorios de la organización
 
