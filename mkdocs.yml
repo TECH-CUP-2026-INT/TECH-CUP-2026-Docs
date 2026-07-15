@@ -39,7 +39,7 @@ nav:
   - Organización: organizacion.md
   - Back: back.md
   - Front: front.md
-  - Entregables y pruebas: entrgablespruebas.md
+  - Entregables y pruebas: entregablespruebas.md
   - APP: app.md
 
 markdown_extensions:
