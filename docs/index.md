@@ -4,12 +4,14 @@ Bienvenido al repositorio central de documentación de **TECH CUP 2026**. Este s
 
 ## Documentos del proyecto
 
-| Documento | Descripción |
-|---|---|
-| [Análisis de Requerimientos](analisis-requerimientos.md) | Requerimientos funcionales y no funcionales del sistema |
-| [Documento de Arquitectura](arquitectura.md) | Arquitectura de la solución, vistas y decisiones técnicas |
-| [Pruebas Funcionales](pruebas-funcionales.md) | Estrategia y casos de prueba funcionales |
-| [Organización](organizacion.md) | Equipo, roles y forma de trabajo |
+| Documento                                                | Descripción                                               |
+|----------------------------------------------------------|-----------------------------------------------------------|
+| [Análisis de Requerimientos](analisis-requerimientos.md) | Requerimientos funcionales y no funcionales del sistema   |
+| [Documento de Arquitectura](arquitectura.md)             | Arquitectura de la solución, vistas y decisiones técnicas |
+| [Pruebas Funcionales](pruebas-funcionales.md)            | Estrategia y casos de prueba funcionales                  |
+| [Organización](organizacion.md)                          | Equipo, roles y forma de trabajo                          |
+| [back](back.md)                                          | back                                                      |
+| [front](front.md)                                        | front                                                     |                                       |
 
 ## Repositorios de la organización
 
