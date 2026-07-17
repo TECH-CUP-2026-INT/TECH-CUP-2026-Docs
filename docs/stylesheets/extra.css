@@ -166,10 +166,6 @@
   color: var(--md-accent-fg-color);
 }
 
-.md-tabs {
-  background-color: var(--md-primary-fg-color--dark);
-}
-
 /* ---- Botones (.md-button) — el dorado como CTA de "logro" ------------- */
 
 .md-typeset .md-button {
@@ -290,12 +286,6 @@
   padding: 12px;
 }
 
-/* ---- Header: leve profundidad para separar del contenido -------------- */
-
-.md-header {
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .08);
-}
-
 /* ---- Selección de texto con el acento dorado --------------------------- */
 
 .md-typeset ::selection {
@@ -392,4 +382,114 @@
   color: #9B98A8;
   font-size: 15px;
   margin: 0;
+}
+
+/* ---- Badges de dominio (cc- / mk- / am- / ga-) ------------------------- */
+
+.tc-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 2px 9px;
+  border-radius: 999px;
+  margin-right: 6px;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+
+/* cc- Identidad y Usuarios -> dorado (texto oscuro: el dorado no pasa AA con texto claro) */
+.tc-badge-cc { background-color: #F5A623; color: #1C1830; }
+/* mk- Torneos y Pagos -> verde (ingeniería de sistemas, paleta de carreras) */
+.tc-badge-mk { background-color: #004B19; color: #FFFFFF; }
+/* am- Partidos y Logística -> morado de marca */
+.tc-badge-am { background-color: #4C1D95; color: #FFFFFF; }
+/* ga- Analítica y Auditoría -> azul (matemáticas, paleta de carreras) */
+.tc-badge-ga { background-color: #003366; color: #FFFFFF; }
+
+.md-typeset h3 .tc-badge {
+  font-size: 11px;
+  margin-right: 10px;
+}
+
+/* ==========================================================================
+   Modo oscuro — más profundidad y carácter ("estadio nocturno")
+   ========================================================================== */
+
+.md-header,
+.md-tabs {
+  background: linear-gradient(120deg, var(--md-primary-fg-color--dark), var(--md-primary-fg-color) 75%);
+}
+
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background: linear-gradient(120deg, #160B24 0%, #3B1264 55%, #4C1D95 100%);
+}
+
+.md-header {
+  box-shadow: 0 1px 0 0 rgba(245, 166, 35, .3), 0 2px 16px rgba(0, 0, 0, .2);
+}
+
+/* Glow sutil detrás del contenido, como reflectores de estadio */
+[data-md-color-scheme="slate"] .md-container {
+  background-image:
+    radial-gradient(ellipse 900px 480px at 8% -8%, rgba(124, 58, 237, .16), transparent 60%),
+    radial-gradient(ellipse 800px 460px at 100% 8%, rgba(245, 166, 35, .07), transparent 55%);
+  background-repeat: no-repeat;
+}
+
+/* Separación sutil de la barra lateral respecto al contenido */
+[data-md-color-scheme="slate"] .md-sidebar__scrollwrap {
+  border-right: 1px solid rgba(245, 166, 35, .06);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link {
+  border-radius: 6px;
+  transition: background-color .15s, color .15s;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  background-color: rgba(245, 166, 35, .08);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  background-color: rgba(124, 58, 237, .16);
+}
+
+/* Más profundidad en tarjetas de contenido sobre el fondo negro */
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details,
+[data-md-color-scheme="slate"] .md-typeset pre,
+[data-md-color-scheme="slate"] .md-typeset table:not([class]),
+[data-md-color-scheme="slate"] .md-typeset .mermaid {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+}
+
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: rgba(255, 255, 255, .08);
+}
+
+[data-md-color-scheme="slate"] .md-search__form:hover {
+  background-color: rgba(255, 255, 255, .14);
+}
+
+/* Scrollbar a medida */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--md-accent-fg-color--transparent);
 }

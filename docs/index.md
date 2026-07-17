@@ -24,36 +24,36 @@ Bienvenido al repositorio central de documentación de **TECH CUP 2026**. Este s
 
 Los siguientes repositorios conforman la plataforma TECH CUP 2026, agrupados por dominio. La columna **Docs** enlaza al sitio MkDocs propio de cada repositorio, publicado en GitHub Pages.
 
-### Identidad y Usuarios (`cc-`)
+### <span class="tc-badge tc-badge-cc">CC</span> Identidad y Usuarios
 
 | Repositorio | Descripción | Docs |
 |---|---|---|
-| [cc-identity-service](https://github.com/TECH-CUP-2026-INT/cc-identity-service) | Servicio de identidad y autenticación | [📖 Docs](https://tech-cup-2026-int.github.io/cc-identity-service/) |
-| [cc-users-players-service](https://github.com/TECH-CUP-2026-INT/cc-users-players-service) | Gestión de usuarios y jugadores | [📖 Docs](https://tech-cup-2026-int.github.io/cc-users-players-service/) |
-| [cc-teams-service](https://github.com/TECH-CUP-2026-INT/cc-teams-service) | Gestión de equipos | [📖 Docs](https://tech-cup-2026-int.github.io/cc-teams-service/) |
+| <span class="tc-badge tc-badge-cc">CC</span> [cc-identity-service](https://github.com/TECH-CUP-2026-INT/cc-identity-service) | Servicio de identidad y autenticación | [📖 Docs](https://tech-cup-2026-int.github.io/cc-identity-service/) |
+| <span class="tc-badge tc-badge-cc">CC</span> [cc-users-players-service](https://github.com/TECH-CUP-2026-INT/cc-users-players-service) | Gestión de usuarios y jugadores | [📖 Docs](https://tech-cup-2026-int.github.io/cc-users-players-service/) |
+| <span class="tc-badge tc-badge-cc">CC</span> [cc-teams-service](https://github.com/TECH-CUP-2026-INT/cc-teams-service) | Gestión de equipos | [📖 Docs](https://tech-cup-2026-int.github.io/cc-teams-service/) |
 
-### Torneos y Pagos (`mk-`)
-
-| Repositorio | Descripción | Docs |
-|---|---|---|
-| [mk-tournament-service](https://github.com/TECH-CUP-2026-INT/mk-tournament-service) | Gestión de torneos | [📖 Docs](https://tech-cup-2026-int.github.io/mk-tournament-service/) |
-| [mk-payment-service](https://github.com/TECH-CUP-2026-INT/mk-payment-service) | Procesamiento de pagos | [📖 Docs](https://tech-cup-2026-int.github.io/mk-payment-service/) |
-
-### Partidos y Logística (`am-`)
+### <span class="tc-badge tc-badge-mk">MK</span> Torneos y Pagos
 
 | Repositorio | Descripción | Docs |
 |---|---|---|
-| [am-matches-service](https://github.com/TECH-CUP-2026-INT/am-matches-service) | Gestión de partidos | [📖 Docs](https://tech-cup-2026-int.github.io/am-matches-service/) |
-| [am-logistic-service](https://github.com/TECH-CUP-2026-INT/am-logistic-service) | Logística de eventos | [📖 Docs](https://tech-cup-2026-int.github.io/am-logistic-service/) |
-| [am-notification-service](https://github.com/TECH-CUP-2026-INT/am-notification-service) | Notificaciones | [📖 Docs](https://tech-cup-2026-int.github.io/am-notification-service/) |
-| [am-communication-service](https://github.com/TECH-CUP-2026-INT/am-communication-service) | Comunicación entre servicios/usuarios | [📖 Docs](https://tech-cup-2026-int.github.io/am-communication-service/) |
+| <span class="tc-badge tc-badge-mk">MK</span> [mk-tournament-service](https://github.com/TECH-CUP-2026-INT/mk-tournament-service) | Gestión de torneos | [📖 Docs](https://tech-cup-2026-int.github.io/mk-tournament-service/) |
+| <span class="tc-badge tc-badge-mk">MK</span> [mk-payment-service](https://github.com/TECH-CUP-2026-INT/mk-payment-service) | Procesamiento de pagos | [📖 Docs](https://tech-cup-2026-int.github.io/mk-payment-service/) |
 
-### Analítica y Auditoría (`ga-`)
+### <span class="tc-badge tc-badge-am">AM</span> Partidos y Logística
 
 | Repositorio | Descripción | Docs |
 |---|---|---|
-| [ga-statistics-service](https://github.com/TECH-CUP-2026-INT/ga-statistics-service) | Estadísticas de la plataforma | [📖 Docs](https://tech-cup-2026-int.github.io/ga-statistics-service/) |
-| [ga-audit-service](https://github.com/TECH-CUP-2026-INT/ga-audit-service) | Auditoría de eventos y acciones | [📖 Docs](https://tech-cup-2026-int.github.io/ga-audit-service/) |
+| <span class="tc-badge tc-badge-am">AM</span> [am-matches-service](https://github.com/TECH-CUP-2026-INT/am-matches-service) | Gestión de partidos | [📖 Docs](https://tech-cup-2026-int.github.io/am-matches-service/) |
+| <span class="tc-badge tc-badge-am">AM</span> [am-logistic-service](https://github.com/TECH-CUP-2026-INT/am-logistic-service) | Logística de eventos | [📖 Docs](https://tech-cup-2026-int.github.io/am-logistic-service/) |
+| <span class="tc-badge tc-badge-am">AM</span> [am-notification-service](https://github.com/TECH-CUP-2026-INT/am-notification-service) | Notificaciones | [📖 Docs](https://tech-cup-2026-int.github.io/am-notification-service/) |
+| <span class="tc-badge tc-badge-am">AM</span> [am-communication-service](https://github.com/TECH-CUP-2026-INT/am-communication-service) | Comunicación entre servicios/usuarios | [📖 Docs](https://tech-cup-2026-int.github.io/am-communication-service/) |
+
+### <span class="tc-badge tc-badge-ga">GA</span> Analítica y Auditoría
+
+| Repositorio | Descripción | Docs |
+|---|---|---|
+| <span class="tc-badge tc-badge-ga">GA</span> [ga-statistics-service](https://github.com/TECH-CUP-2026-INT/ga-statistics-service) | Estadísticas de la plataforma | [📖 Docs](https://tech-cup-2026-int.github.io/ga-statistics-service/) |
+| <span class="tc-badge tc-badge-ga">GA</span> [ga-audit-service](https://github.com/TECH-CUP-2026-INT/ga-audit-service) | Auditoría de eventos y acciones | [📖 Docs](https://tech-cup-2026-int.github.io/ga-audit-service/) |
 
 ### Frontend
 
