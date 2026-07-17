@@ -5,7 +5,8 @@
                JetBrains Mono (código, vía theme.font) · Archivo Black (display)
    Color: dorado #F5A623 = logro/acción (CTAs, iconos, acentos cortos —
           nunca texto largo). Morado #7C3AED = diferenciación/foco/navegación.
-          Negro #0B0B0F = "estadio nocturno" (modo oscuro, principal).
+          Fondo #160B24 ("purple-black" del manual) = modo oscuro principal,
+          más cálido que el negro puro para que combine con los acentos.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo+Black&display=swap');
@@ -52,7 +53,7 @@
 }
 
 [data-md-color-scheme="slate"] {
-  /* Modo oscuro — principal. "Estadio nocturno": dorado y morado brillan sobre negro. */
+  /* Modo oscuro — principal. Fondo "purple-black", más cálido que el negro puro. */
   --md-primary-fg-color: #4C1D95;
   --md-primary-fg-color--light: #7C3AED;
   --md-primary-fg-color--dark: #3B1264;
@@ -63,7 +64,7 @@
 
   --md-typeset-a-color: #F5A623;
 
-  --md-default-bg-color: #0B0B0F;
+  --md-default-bg-color: #160B24;
   --md-default-fg-color: #E5E7EB;
   --md-default-fg-color--light: #9B98A8;
   --md-default-fg-color--lighter: #9B98A880;
@@ -308,7 +309,7 @@
 /* ---- Hero de portada — mismo degradé "estadio nocturno" del manual ----- */
 
 .tc-hero {
-  background: linear-gradient(140deg, #0B0B0F 0%, #160B24 45%, #3B1264 100%);
+  background: linear-gradient(140deg, #160B24 0%, #2E1450 55%, #3B1264 100%);
   border-radius: 18px;
   padding: 56px 24px 46px;
   text-align: center;
@@ -435,8 +436,8 @@
 /* Glow sutil detrás del contenido, como reflectores de estadio */
 [data-md-color-scheme="slate"] .md-container {
   background-image:
-    radial-gradient(ellipse 900px 480px at 8% -8%, rgba(124, 58, 237, .16), transparent 60%),
-    radial-gradient(ellipse 800px 460px at 100% 8%, rgba(245, 166, 35, .07), transparent 55%);
+    radial-gradient(ellipse 900px 480px at 8% -8%, rgba(124, 58, 237, .10), transparent 60%),
+    radial-gradient(ellipse 800px 460px at 100% 8%, rgba(245, 166, 35, .06), transparent 55%);
   background-repeat: no-repeat;
 }
 
