@@ -53,13 +53,22 @@ Los siguientes repositorios conforman la plataforma TECH CUP 2026, agrupados por
 | Repositorio | Descripción | Docs |
 |---|---|---|
 | <span class="tc-badge tc-badge-ga">GA</span> [ga-statistics-service](https://github.com/TECH-CUP-2026-INT/ga-statistics-service) | Estadísticas de la plataforma | [📖 Docs](https://tech-cup-2026-int.github.io/ga-statistics-service/) |
-| <span class="tc-badge tc-badge-ga">GA</span> [ga-audit-service](https://github.com/TECH-CUP-2026-INT/ga-audit-service) | Auditoría de eventos y acciones | [📖 Docs](https://tech-cup-2026-int.github.io/ga-audit-service/) |
+| <span class="tc-badge tc-badge-ga">GA</span> [ga-api-gateway-service](https://github.com/TECH-CUP-2026-INT/ga-api-gateway-service) | Puerta de enlace de APIs (repositorio privado) | — |
 
 ### Frontend
 
 | Repositorio | Descripción | Docs |
 |---|---|---|
 | [TECH-CUP-FRONT](https://github.com/TECH-CUP-2026-INT/TECH-CUP-FRONT) | Aplicación frontend de la plataforma | [📖 Docs](https://tech-cup-2026-int.github.io/TECH-CUP-FRONT/) |
+
+### Infraestructura
+
+| Repositorio | Descripción | Docs |
+|---|---|---|
+| [TECH-CUP-Observability](https://github.com/TECH-CUP-2026-INT/TECH-CUP-Observability) | Observabilidad de la plataforma (repositorio privado) | — |
+
+!!! warning "`ga-audit-service` no existe en la organización"
+    Este repositorio está referenciado en la documentación (incluyendo el diagrama de arquitectura) pero no se encuentra en `TECH-CUP-2026-INT` — puede que falte crearlo o que haya cambiado de nombre. Revisa y actualiza esta nota una vez se resuelva.
 
 ### Documentación
 
