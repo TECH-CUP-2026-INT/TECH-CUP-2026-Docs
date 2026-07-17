@@ -20,7 +20,7 @@ servicio, ver [Back](back.md); para el detalle de pantallas, ver
 | Ver sus partidos y resultado en vivo | `am-matches-service` (lectura) |
 | Ver estadísticas propias y rankings públicos | `ga-statistics-service` |
 | Recibir notificaciones (sanciones, invitaciones, cambios de inscripción, resultados) | `am-notification-service` |
-| Chat de soporte, mensajería directa y chat de equipo | `am-communication-service` *(en fase temprana — ver [Back](back.md))* |
+| Chat de soporte, mensajería directa y chat de equipo | `am-communication-service` |
 
 ## <span class="tc-badge tc-badge-am">AM</span> Árbitro
 
@@ -41,13 +41,8 @@ servicio, ver [Back](back.md); para el detalle de pantallas, ver
 | Crear y editar torneos, reglamento, canchas, calendario | `mk-tournament-service` |
 | Aprobar/rechazar inscripciones de equipos | `mk-tournament-service` |
 | Definir y registrar entrega de refrigerios; controlar dotación de árbitros | `am-logistic-service` |
-| Recibir escalamiento de conversaciones de soporte | `am-communication-service` *(en fase temprana)* |
+| Recibir escalamiento de conversaciones de soporte | `am-communication-service` |
 | Consultar estadísticas y reconocimientos del torneo | `ga-statistics-service` |
-
-!!! warning "Auditoría centralizada pendiente"
-    Varios servicios (Logística, Partidos) reportan eventos best-effort a un
-    Servicio de Auditoría (`ga-audit-service`), pero ese repositorio **no
-    existe** todavía en la organización — ver la sección GA en [Back](back.md).
 
 ## Público / Aficionado (sin autenticación)
 

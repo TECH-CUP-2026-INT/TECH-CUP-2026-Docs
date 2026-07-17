@@ -49,12 +49,11 @@ ahí, no se duplica aquí.
 | RF-01 – RF-12 | Partidos | Arbitraje en vivo: cronómetro, goles, tarjetas, sustituciones, planilla | [am-matches-service](https://github.com/TECH-CUP-2026-INT/am-matches-service) |
 | RF-01 – RF-05 | Logística | Refrigerios y dotación (petos, balones, kits) | [am-logistic-service](https://github.com/TECH-CUP-2026-INT/am-logistic-service) |
 | RF-01 – RF-07 | Notificaciones | Alertas in-app y correo best-effort a partir de eventos de otros servicios | [am-notification-service](https://github.com/TECH-CUP-2026-INT/am-notification-service) |
-| RF-01 – RF-05 | Comunicaciones | Chat de soporte, mensajería directa, chat de equipo, moderación *(planeado, no implementado)* | [am-communication-service](https://github.com/TECH-CUP-2026-INT/am-communication-service) |
+| RF-01 – RF-05 | Comunicaciones | Chat de soporte, mensajería directa, chat de equipo, moderación | [am-communication-service](https://github.com/TECH-CUP-2026-INT/am-communication-service) |
 | RF1 – RF15 | Estadísticas | Estadísticas y rankings de jugador/equipo/torneo, reconocimientos | [ga-statistics-service](https://github.com/TECH-CUP-2026-INT/ga-statistics-service) |
 
-Ver [Back](back.md) para el detalle de qué está implementado, parcialmente
-implementado o pendiente en cada servicio, y [APP](app.md) para la misma
-información organizada por actor en vez de por servicio.
+Ver [Back](back.md) para el detalle de cada servicio, y [APP](app.md) para la
+misma información organizada por actor en vez de por servicio.
 
 ## 5. Requerimientos no funcionales
 

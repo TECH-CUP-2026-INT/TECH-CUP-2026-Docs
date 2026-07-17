@@ -15,10 +15,10 @@ Bienvenido al repositorio central de documentación de **TECH CUP 2026**. Este s
 | [Documento de Arquitectura](arquitectura.md)             | Arquitectura de la solución, vistas y decisiones técnicas |
 | [Pruebas Funcionales](pruebas-funcionales.md)            | Estrategia y casos de prueba funcionales                  |
 | [Organización](organizacion.md)                          | Equipo, roles y forma de trabajo                          |
-| [back](back.md)                                          | back                                                      |
-| [front](front.md)                                        | front                                                     |                                       |
-| [app](app.md)                                            | app                                                       |  
-| [Entregables](entregablespruebas.md)                     | Entregables                                               | 
+| [Back](back.md)                                          | Microservicios backend por dominio                        |
+| [Front](front.md)                                        | Aplicación web y stack de frontend                         |
+| [APP](app.md)                                            | La plataforma explicada por tipo de usuario                |
+| [Entregables y pruebas](entregablespruebas.md)           | Entregables de cada repositorio e integración continua     |
 
 ## Repositorios de la organización
 
@@ -67,17 +67,12 @@ Los siguientes repositorios conforman la plataforma TECH CUP 2026, agrupados por
 |---|---|---|
 | [TECH-CUP-Observability](https://github.com/TECH-CUP-2026-INT/TECH-CUP-Observability) | Observabilidad de la plataforma (repositorio privado) | — |
 
-!!! warning "`ga-audit-service` no existe en la organización"
-    Este repositorio está referenciado en la documentación (incluyendo el diagrama de arquitectura) pero no se encuentra en `TECH-CUP-2026-INT` — puede que falte crearlo o que haya cambiado de nombre. Revisa y actualiza esta nota una vez se resuelva.
-
 ### Documentación
 
 | Repositorio | Descripción | Docs |
 |---|---|---|
 | [TECH-CUP-2026-Docs](https://github.com/TECH-CUP-2026-INT/TECH-CUP-2026-Docs) | Este repositorio: documentación central del proyecto | [📖 Docs](https://tech-cup-2026-int.github.io/TECH-CUP-2026-Docs/) |
 
-!!! note "Agrupación por dominio"
-    La agrupación anterior se infiere del prefijo de nombre de cada repositorio (`cc-`, `mk-`, `am-`, `ga-`). Si los nombres de dominio oficiales difieren, actualiza esta tabla en `docs/index.md`.
-
-!!! warning "Enlaces Docs pendientes"
-    Los enlaces de la columna **Docs** siguen el patrón estándar de GitHub Pages (`https://tech-cup-2026-int.github.io/<repo>/`) que tendrá cada repositorio una vez se le agregue MkDocs y se habilite Pages con fuente "GitHub Actions". Hasta que cada equipo lo configure en su propio repositorio, esos enlaces devolverán 404.
+La agrupación por dominio se basa en el prefijo del nombre de cada repositorio
+(`cc-`, `mk-`, `am-`, `ga-`), y los enlaces de la columna **Docs** siguen el
+patrón estándar de GitHub Pages (`https://tech-cup-2026-int.github.io/<repo>/`).

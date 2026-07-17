@@ -5,46 +5,29 @@
 Cada repositorio de la organización [TECH-CUP-2026-INT](https://github.com/TECH-CUP-2026-INT)
 es un entregable independiente, con su propio pipeline de CI/CD y (salvo el
 frontend y la infraestructura) su propio sitio MkDocs. Ver [Inicio](index.md)
-para el listado completo con enlaces.
+para el listado completo con enlaces a cada repositorio y su documentación.
 
-## 2. Estado de CI/CD
-
-Snapshot del último workflow de cada repositorio (capturado el 2026-07-17 —
-consulta `gh run list --repo TECH-CUP-2026-INT/<repo>` para el estado actual,
-ya que esta tabla no se actualiza sola).
-
-| Repositorio | Último resultado de CI |
+| Dominio | Entregables |
 |---|---|
-| <span class="tc-badge tc-badge-cc">CC</span> cc-identity-service | ✅ Exitoso |
-| <span class="tc-badge tc-badge-cc">CC</span> cc-users-players-service | ❌ Falla — ver BUG-01 en [Pruebas Funcionales](pruebas-funcionales.md) |
-| <span class="tc-badge tc-badge-cc">CC</span> cc-teams-service | ✅ Exitoso |
-| <span class="tc-badge tc-badge-mk">MK</span> mk-tournament-service | ✅ Exitoso |
-| <span class="tc-badge tc-badge-mk">MK</span> mk-payment-service | ✅ Exitoso |
-| <span class="tc-badge tc-badge-am">AM</span> am-matches-service | 🔄 En progreso al momento de la captura |
-| <span class="tc-badge tc-badge-am">AM</span> am-logistic-service | ❌ Falla |
-| <span class="tc-badge tc-badge-am">AM</span> am-notification-service | 🔄 En progreso al momento de la captura |
-| <span class="tc-badge tc-badge-am">AM</span> am-communication-service | ✅ Exitoso |
-| <span class="tc-badge tc-badge-ga">GA</span> ga-statistics-service | ✅ Exitoso |
-| <span class="tc-badge tc-badge-ga">GA</span> ga-api-gateway-service | ❌ Falla |
-| Frontend — TECH-CUP-FRONT | — Sin workflows de CI configurados todavía |
-| Infraestructura — TECH-CUP-Observability | — Sin workflows de CI configurados todavía |
+| <span class="tc-badge tc-badge-cc">CC</span> Identidad y Usuarios | cc-identity-service, cc-users-players-service, cc-teams-service |
+| <span class="tc-badge tc-badge-mk">MK</span> Torneos y Pagos | mk-tournament-service, mk-payment-service |
+| <span class="tc-badge tc-badge-am">AM</span> Partidos y Logística | am-matches-service, am-logistic-service, am-notification-service, am-communication-service |
+| <span class="tc-badge tc-badge-ga">GA</span> Analítica y Auditoría | ga-statistics-service, ga-api-gateway-service |
+| Frontend | TECH-CUP-FRONT |
+| Infraestructura | TECH-CUP-Observability |
+| Documentación | TECH-CUP-2026-Docs (este repositorio) |
 
-## 3. Huecos conocidos entre entregables
+## 2. Integración continua
 
-| Hueco | Repositorios involucrados |
-|---|---|
-| `ga-audit-service` no existe, pero varios servicios reportan eventos de auditoría hacia él (best-effort) | am-logistic-service, am-matches-service |
-| Contratos de webhook "propuestos" (no confirmados) entre equipos | am-notification-service ↔ am-communication-service, cc-teams-service |
-| Seguridad por rol documentada pero no implementada (endpoints abiertos) | mk-tournament-service |
-| Sincronización de rol capitán entre servicios rota | cc-users-players-service ↔ cc-identity-service |
-| Lógica de negocio no implementada (fase de estructura base) | am-communication-service |
+Cada microservicio automatiza en su pipeline de GitHub Actions: compilación,
+ejecución de pruebas, empaquetado y publicación de la imagen Docker en GitHub
+Container Registry. Varios servicios agregan además un gate de cobertura
+(JaCoCo) y análisis estático (SonarQube/SonarCloud) antes de permitir el
+merge — ver [Pruebas Funcionales](pruebas-funcionales.md).
 
-Ver [Pruebas Funcionales — Registro de defectos](pruebas-funcionales.md#5-registro-de-defectos)
-para el detalle con severidad y estado.
-
-## 4. Historial de cambios
+## 3. Historial de cambios
 
 | Versión | Fecha | Autor | Descripción |
 |---|---|---|---|
 | 0.1 | | | Versión inicial |
-| 0.2 | 2026-07-17 | | Entregables y estado de CI completados a partir del estado real de cada repositorio |
+| 0.2 | 2026-07-17 | | Entregables completados a partir de la documentación de cada repositorio |

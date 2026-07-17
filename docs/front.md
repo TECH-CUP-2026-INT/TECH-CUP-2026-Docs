@@ -62,8 +62,6 @@ npm run lint      # Oxlint
 
 ## Documentación completa
 
-Este repositorio todavía no publica un sitio MkDocs propio (a diferencia de
-los microservicios backend) — su README usa la plantilla por defecto de Vite.
-Si el equipo agrega documentación técnica extendida (arquitectura de
-componentes, rutas protegidas, manejo de estado, contratos de API consumidos),
-enlázala aquí.
+La documentación técnica extendida de este repositorio (arquitectura de
+componentes, rutas protegidas, manejo de estado, contratos de API consumidos)
+se enlazará aquí.

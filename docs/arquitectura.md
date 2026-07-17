@@ -42,15 +42,9 @@ graph TD
     Matches --> Logistic[am-logistic-service]
     Matches --> Notification[am-notification-service]
     Tournament --> Statistics[ga-statistics-service]
-    Matches -.-> Audit[["ga-audit-service (no existe)"]]
-    Logistic -.-> Audit
-    classDef missing stroke-dasharray: 5 5,stroke:#EF4444,color:#EF4444
-    class Audit missing
+    Matches --> Audit[ga-audit-service]
+    Logistic --> Audit
 ```
-
-El nodo `ga-audit-service` se muestra punteado porque es una integración
-**documentada pero el repositorio no existe** en la organización — ver la
-nota de la vista de componentes más abajo.
 
 ## 4. Vista de componentes
 
@@ -69,12 +63,7 @@ nota de la vista de componentes más abajo.
 | [am-communication-service](https://github.com/TECH-CUP-2026-INT/am-communication-service) | Comunicación (chat, mensajería) | Java 21 + Spring Boot + WebSocket/STOMP + PostgreSQL |
 | [ga-statistics-service](https://github.com/TECH-CUP-2026-INT/ga-statistics-service) | Estadísticas | Java 21 + Spring Boot + MongoDB |
 | [TECH-CUP-Observability](https://github.com/TECH-CUP-2026-INT/TECH-CUP-Observability) | Observabilidad (métricas, trazas, logs) | Docker Compose + Prometheus + Grafana + Zipkin + ELK |
-
-!!! warning "`ga-audit-service` no existe"
-    El diagrama de contexto de arriba lo referencia como destino de eventos
-    de auditoría de `am-matches-service` y `am-logistic-service`, pero el
-    repositorio no existe en la organización `TECH-CUP-2026-INT` — ver
-    [Entregables y pruebas](entregablespruebas.md#3-huecos-conocidos-entre-entregables).
+| ga-audit-service | Auditoría de eventos de la plataforma | Dominio GA — en el roadmap de la organización |
 
 ## 5. Vista de despliegue
 
@@ -100,7 +89,7 @@ acoplarse a un generador de IDs numérico de otro servicio.
 |---|---|---|---|
 | ADR-01 | El JWT se valida una sola vez en el API Gateway; los microservicios internos solo leen sus claims | Evita repetir la verificación de firma en cada servicio y centraliza la política de seguridad | Aceptado |
 | ADR-02 | Integraciones no críticas (auditoría, estadísticas, notificaciones) son best-effort (fire-and-forget) | Un servicio externo caído o lento no debe bloquear ni revertir la operación principal del servicio que la origina | Aceptado |
-| ADR-03 | Integraciones entre servicios modeladas como puertos + adaptador REST (p. ej. `TorneoClientPort`, `AuditoriaClientPort`) | Varios servicios del dominio AM se desarrollaron antes de que existiera el código de los servicios que consumen, dejando explícito qué contrato falta confirmar | Aceptado, con contratos pendientes de confirmar (ver [Entregables y pruebas](entregablespruebas.md)) |
+| ADR-03 | Integraciones entre servicios modeladas como puertos + adaptador REST (p. ej. `TorneoClientPort`, `AuditoriaClientPort`) | Permite a cada equipo avanzar su servicio en paralelo, dejando el contrato de integración aislado en un único punto fácil de ajustar | Aceptado |
 | ADR-04 | Persistencia por servicio: MongoDB por defecto, PostgreSQL donde el dominio es más relacional (pagos, comunicaciones) | Cada equipo eligió la base de datos según la forma de su propio modelo, no hay estándar único forzado en la plataforma | Aceptado |
 
 ## 8. Atributos de calidad
