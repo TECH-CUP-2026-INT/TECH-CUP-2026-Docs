@@ -59,7 +59,7 @@ Los siguientes repositorios conforman la plataforma TECH CUP 2026, agrupados por
 
 | Repositorio | Descripción | Docs |
 |---|---|---|
-| [TECH-CUP-FRONT](https://github.com/TECH-CUP-2026-INT/TECH-CUP-FRONT) | Aplicación frontend de la plataforma | [📖 Docs](https://tech-cup-2026-int.github.io/TECH-CUP-FRONT/) |
+| [TECH-CUP-FRONT](https://github.com/TECH-CUP-2026-INT/TECH-CUP-FRONT) | Aplicación frontend de la plataforma | — |
 
 ### Infraestructura
 
