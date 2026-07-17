@@ -1,4 +1,9 @@
-# TECH CUP 2026 — Documentación
+<div class="tc-hero">
+  <img src="assets/img/logo.png" alt="Logo TechCup" class="tc-hero-logo">
+  <p class="tc-hero-eyebrow">Documentación oficial</p>
+  <h1 class="tc-hero-title">TECH<span>CUP</span> 2026</h1>
+  <p class="tc-hero-sub">&ldquo;La pasión nos une, la ingeniería nos impulsa&rdquo;</p>
+</div>
 
 Bienvenido al repositorio central de documentación de **TECH CUP 2026**. Este sitio reúne los documentos transversales del proyecto (requerimientos, arquitectura, pruebas y organización) y sirve como **índice** hacia los repositorios de código de la organización [TECH-CUP-2026-INT](https://github.com/TECH-CUP-2026-INT).
 

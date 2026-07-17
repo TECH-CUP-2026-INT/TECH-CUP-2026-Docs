@@ -8,6 +8,8 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: es
+  logo: assets/img/logo.png
+  favicon: assets/img/logo.png
   font:
     text: Inter
     code: JetBrains Mono

@@ -301,3 +301,95 @@
 .md-typeset ::selection {
   background-color: var(--md-accent-fg-color--transparent);
 }
+
+/* ---- Logo del header: leve resalte dorado al pasar el mouse ----------- */
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.6rem;
+  width: 1.6rem;
+  transition: filter .2s;
+}
+
+.md-header__button.md-logo:hover img {
+  filter: drop-shadow(0 0 6px rgba(245, 166, 35, .55));
+}
+
+/* ---- Hero de portada — mismo degradé "estadio nocturno" del manual ----- */
+
+.tc-hero {
+  background: linear-gradient(140deg, #0B0B0F 0%, #160B24 45%, #3B1264 100%);
+  border-radius: 18px;
+  padding: 56px 24px 46px;
+  text-align: center;
+  margin: 0 0 40px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tc-hero::before {
+  content: '';
+  position: absolute;
+  right: -90px;
+  bottom: -90px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 166, 35, .12);
+  z-index: -1;
+}
+
+.tc-hero::after {
+  content: '';
+  position: absolute;
+  left: -70px;
+  top: -70px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(124, 58, 237, .18);
+  z-index: -1;
+}
+
+.tc-hero-logo {
+  width: 104px;
+  height: auto;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 6px 22px rgba(245, 166, 35, .3));
+}
+
+.tc-hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #F5A623;
+  margin: 0 0 18px;
+}
+
+.md-typeset h1.tc-hero-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: clamp(30px, 5.5vw, 52px);
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 0;
+  margin: 0 0 18px;
+}
+
+.md-typeset h1.tc-hero-title::after {
+  content: none;
+}
+
+.tc-hero-title span {
+  color: #F5A623;
+}
+
+.tc-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  color: #9B98A8;
+  font-size: 15px;
+  margin: 0;
+}
