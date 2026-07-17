@@ -20,9 +20,10 @@ JWT una única vez, antes de reenviar la petición al microservicio
 correspondiente — los microservicios internos confían en esos claims y no
 vuelven a verificar la firma. La integración entre servicios es
 mayoritariamente **REST síncrono** para datos maestros/bloqueantes, con
-llamadas **best-effort** (fire-and-forget) para trazabilidad no crítica
-(auditoría, estadísticas, notificaciones), y **eventos vía RabbitMQ** para dos
-tipos de notificación ya publicados en un exchange compartido.
+llamadas **best-effort** (fire-and-forget) hacia estadísticas y notificaciones,
+y **eventos vía RabbitMQ** para dos tipos de notificación ya publicados en un
+exchange compartido. Cada microservicio audita sus propios eventos y los
+expone a través de su propio log de consulta.
 
 ## 3. Vista de contexto
 
@@ -42,9 +43,11 @@ graph TD
     Matches --> Logistic[am-logistic-service]
     Matches --> Notification[am-notification-service]
     Tournament --> Statistics[ga-statistics-service]
-    Matches --> Audit[ga-audit-service]
-    Logistic --> Audit
 ```
+
+Cada microservicio expone su propio log de eventos para auditoría (p. ej.
+TC-12, TC-23, TC-40, TC-73 — ver [Análisis de Requerimientos](analisis-requerimientos.md)),
+en vez de delegarla a un servicio de auditoría centralizado.
 
 ## 4. Vista de componentes
 
@@ -63,11 +66,23 @@ graph TD
 | [am-communication-service](https://github.com/TECH-CUP-2026-INT/am-communication-service) | Comunicación (chat, mensajería) | Java 21 + Spring Boot + WebSocket/STOMP + PostgreSQL |
 | [ga-statistics-service](https://github.com/TECH-CUP-2026-INT/ga-statistics-service) | Estadísticas | Java 21 + Spring Boot + MongoDB |
 | [TECH-CUP-Observability](https://github.com/TECH-CUP-2026-INT/TECH-CUP-Observability) | Observabilidad (métricas, trazas, logs) | Docker Compose + Prometheus + Grafana + Zipkin + ELK |
-| ga-audit-service | Auditoría de eventos de la plataforma | Dominio GA — en el roadmap de la organización |
 
 ## 5. Vista de despliegue
 
-Diagrama de infraestructura y ambientes (desarrollo, staging, producción).
+- **Desarrollo local:** cada microservicio se levanta con Docker Compose
+  (aplicación + su base de datos), documentado en el README de su propio
+  repositorio.
+- **Empaquetado:** cada pipeline de GitHub Actions construye una imagen
+  Docker y la publica en GitHub Container Registry
+  (`ghcr.io/tech-cup-2026-int/<servicio>`).
+- **Despliegue:** los servicios se despliegan como contenedores; algunos
+  (p. ej. `am-notification-service`) documentan despliegue a Azure App
+  Service.
+- **Documentación:** cada repositorio publica su sitio MkDocs en GitHub
+  Pages mediante su propio workflow de Actions.
+- **Observabilidad:** `TECH-CUP-Observability` centraliza Prometheus,
+  Grafana, Zipkin y el stack ELK sobre Docker Compose, independiente del
+  despliegue de cada microservicio.
 
 ## 6. Vista de datos
 
@@ -88,8 +103,8 @@ acoplarse a un generador de IDs numérico de otro servicio.
 | ID | Decisión | Contexto | Estado |
 |---|---|---|---|
 | ADR-01 | El JWT se valida una sola vez en el API Gateway; los microservicios internos solo leen sus claims | Evita repetir la verificación de firma en cada servicio y centraliza la política de seguridad | Aceptado |
-| ADR-02 | Integraciones no críticas (auditoría, estadísticas, notificaciones) son best-effort (fire-and-forget) | Un servicio externo caído o lento no debe bloquear ni revertir la operación principal del servicio que la origina | Aceptado |
-| ADR-03 | Integraciones entre servicios modeladas como puertos + adaptador REST (p. ej. `TorneoClientPort`, `AuditoriaClientPort`) | Permite a cada equipo avanzar su servicio en paralelo, dejando el contrato de integración aislado en un único punto fácil de ajustar | Aceptado |
+| ADR-02 | Integraciones no críticas entre servicios (estadísticas, notificaciones) son best-effort (fire-and-forget) | Un servicio externo caído o lento no debe bloquear ni revertir la operación principal del servicio que la origina | Aceptado |
+| ADR-03 | Integraciones entre servicios modeladas como puertos + adaptador REST (p. ej. `TorneoClientPort`) | Permite a cada equipo avanzar su servicio en paralelo, dejando el contrato de integración aislado en un único punto fácil de ajustar | Aceptado |
 | ADR-04 | Persistencia por servicio: MongoDB por defecto, PostgreSQL donde el dominio es más relacional (pagos, comunicaciones) | Cada equipo eligió la base de datos según la forma de su propio modelo, no hay estándar único forzado en la plataforma | Aceptado |
 
 ## 8. Atributos de calidad
@@ -108,3 +123,4 @@ acoplarse a un generador de IDs numérico de otro servicio.
 |---|---|---|---|
 | 0.1 | | | Versión inicial |
 | 0.2 | 2026-07-17 | | Vista de componentes, ADR y atributos de calidad completados a partir de la documentación real de cada repositorio |
+| 0.3 | 2026-07-17 | | Vista de despliegue completada; modelo de auditoría por servicio alineado al catálogo oficial de requerimientos |

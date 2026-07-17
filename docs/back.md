@@ -15,6 +15,10 @@ Autenticación y autorización de la plataforma: `POST /auth/login`,
 emisor del JWT que valida el API Gateway y en el que confía el resto de
 servicios. Java (con scripts Python auxiliares), Dockerizado.
 
+- **Cobertura funcional:** TC-06 a TC-12 del catálogo oficial (login
+  institucional y con Gmail, validación de JWT, recuperación de contraseña,
+  OTP, expiración de sesión y consulta de eventos del servicio).
+
 ### cc-users-players-service
 
 Fuente de verdad del perfil de usuario: registro de estudiantes, invitados y
@@ -22,9 +26,9 @@ egresados, creación de árbitros/administradores, perfil general y perfil
 deportivo (posición, dorsal), y promoción de jugador a capitán.
 
 - **Stack:** Java 21 · Spring Boot 3.5.6 · Maven · MongoDB · OpenFeign (Identity, Teams) · Docker.
-- **Cobertura funcional:** requerimientos TC-01 a TC-19, con historial de
-  torneos por jugador y sincronización de rol de capitán en el roadmap de
-  integración con Torneos e Identity.
+- **Cobertura funcional:** TC-01 a TC-05 (registro de estudiantes, invitados,
+  egresados, árbitros y administradores) y TC-13 a TC-19 (perfil general y
+  deportivo, ascenso a capitán, deshabilitar usuario) del catálogo oficial.
 
 ### cc-teams-service
 
@@ -32,11 +36,9 @@ Gestión de equipos: creación, invitaciones, capitanía e inscripción a
 torneos. Actor principal: el **Capitán**.
 
 - **Stack:** Java 21 · Spring Boot 3.5.6 · Maven · MongoDB · OpenFeign (Identity, Torneos).
-- **Cobertura funcional:** requerimientos TC-20 a TC-28 — creación y consulta
-  de equipos, inscripción a torneo (mínimo 7 integrantes), invitaciones,
-  aceptación/rechazo y transferencia de capitanía. Edición y eliminación de
-  equipo, y el detalle enriquecido de equipo con perfiles de miembros, están
-  en el roadmap del servicio.
+- **Cobertura funcional:** TC-20 a TC-28 del catálogo oficial — creación,
+  consulta de alineación y plantilla, actualización y eliminación de equipo,
+  invitaciones y transferencia de capitanía.
 
 ## <span class="tc-badge tc-badge-mk">MK</span> Torneos y Pagos
 
@@ -47,10 +49,11 @@ de emparejamientos (brackets / grupos / liga), calendario, mapa de canchas,
 tabla de posiciones y llaves en tiempo real.
 
 - **Stack:** Java 21 · Spring Boot 3.5.6 · MongoDB · arquitectura hexagonal.
-- **Cobertura funcional:** TC-29 a TC-54 (excluyendo TC-52, que pertenece al
-  Servicio de Inscripción). El control de acceso por rol (Organizador,
-  Capitán, Jugador) vía JWT está definido a nivel de diseño y forma parte del
-  roadmap de seguridad del servicio.
+- **Cobertura funcional:** TC-29 a TC-51 y TC-54 (creación, reglamento,
+  canchas, emparejamientos, calendario, ciclo de vida y consulta de eventos
+  del torneo); la inscripción de equipos (TC-52, TC-55, TC-56) se resuelve en
+  conjunto con `mk-payment-service`. El acceso está controlado por rol
+  (Organizador, Capitán, Jugador) mediante el JWT emitido por Identidad.
 
 ### mk-payment-service
 
@@ -61,7 +64,9 @@ consultar estado de una orden, sincronización diaria de límites, y expiración
 automática de órdenes pendientes (60 min, revisado cada 5 min).
 
 - **Stack:** Java 21 · Spring Boot · Maven · PostgreSQL 16 · Mercado Pago (sandbox PSE).
-- **Cobertura funcional:** RF-01 a RF-07+.
+- **Cobertura funcional:** implementa la inscripción y validación de pago del
+  torneo (TC-52, TC-53, TC-55, TC-56 del catálogo oficial) con su propia
+  numeración interna RF-01 a RF-07+, ya integrada con Mercado Pago vía PSE.
 
 ## <span class="tc-badge tc-badge-am">AM</span> Partidos y Logística
 
@@ -77,8 +82,8 @@ añadido, goles, tarjetas (con regla de sanción por acumulación), sustitucione
 observaciones y subida de la planilla del partido.
 
 - **Stack:** Java 21 · Spring Boot 3.5.6 · Maven · MongoDB.
-- **Cobertura funcional:** RF-01 a RF-12. Endpoints bajo `/api/partidos`, rol
-  requerido: árbitro.
+- **Cobertura funcional:** TC-57 a TC-69 del catálogo oficial. Endpoints bajo
+  `/api/partidos`, rol requerido: árbitro.
 - **Seguridad:** incluyó una revisión dedicada que reforzó la validación de
   archivos y rutas en la subida de la planilla del partido.
 
@@ -88,10 +93,9 @@ Operación no deportiva del torneo: refrigerios y dotación (petos, balones,
 kits) para equipos, jugadores y árbitros. Actor principal: el **Organizador**.
 
 - **Stack:** Java 21 · Spring Boot · Maven · MongoDB · Testcontainers · JaCoCo.
-- **Cobertura funcional:** RF-01 a RF-05, incluyendo devolución de dotación
-  con estado `DEVUELTO`. Las integraciones con Torneos, Equipos y Auditoría
-  están implementadas detrás de interfaces (puertos), listas para confirmar
-  el contrato final con cada equipo dueño.
+- **Cobertura funcional:** TC-70 a TC-74 del catálogo oficial, incluyendo
+  devolución de dotación con estado `DEVUELTO`. Las integraciones con Torneos
+  y Equipos están implementadas detrás de interfaces (puertos).
 
 ### am-notification-service
 
@@ -103,9 +107,9 @@ notificaciones in-app y correo best-effort.
 
 - **Stack:** Java 21 · Spring Boot 3.5.6 · MongoDB · Spring AMQP · Spring Mail ·
   Micrometer + Prometheus + Zipkin.
-- **Cobertura funcional:** RF-01 confirmado end-to-end con
-  `am-matches-service`; RF-02 a RF-06 con endpoint disponible y contrato en
-  proceso de confirmación conjunta con Equipos, Comunicaciones e Inscripción.
+- **Cobertura funcional:** TC-79 a TC-88 del catálogo oficial. TC-79 (sanción
+  por tarjetas) confirmado end-to-end con `am-matches-service`; el resto de
+  eventos se integra conjuntamente con Equipos, Comunicaciones e Inscripción.
 
 ### am-communication-service
 
@@ -115,9 +119,8 @@ equipo y moderación de mensajes reportados.
 
 - **Stack:** Java 21 · Spring Boot 3.x · WebSocket/STOMP (tiempo real) ·
   PostgreSQL + JPA · OpenFeign · JWT (jjwt) · MapStruct.
-- **Cobertura funcional:** RF-01 a RF-05 definidos, con la estructura base del
-  servicio (controller, service, repository, entity, dto, mapper) en su lugar
-  y el desarrollo de la lógica de negocio en curso.
+- **Cobertura funcional:** TC-75 a TC-78 del catálogo oficial, sobre una
+  estructura en capas (controller, service, repository, entity, dto, mapper).
 
 ## <span class="tc-badge tc-badge-ga">GA</span> Analítica y Auditoría
 
@@ -130,7 +133,7 @@ calculan con streams de Java sobre los documentos necesarios, no con
 `AVG`/`GROUP BY` en la base de datos.
 
 - **Stack:** Java 21 · Spring Boot 3.5.6 · MongoDB · Lombok.
-- **Cobertura funcional:** RF1 a RF15.
+- **Cobertura funcional:** TC-89 a TC-108 — ver [Análisis de Requerimientos](analisis-requerimientos.md).
 - **Pruebas:** JUnit 5 + Mockito + AssertJ, cobertura 97% (mínimo exigido: 80%).
 
 ### ga-api-gateway-service
@@ -140,9 +143,9 @@ enruta las peticiones del frontend a cada microservicio, aplica el filtro de
 autenticación JWT (`AuthenticationFilter`) y centraliza la documentación
 OpenAPI/Swagger de todos los servicios. Repositorio **privado**.
 
-El dominio GA también contempla un Servicio de Auditoría (`ga-audit-service`)
-como destino de los reportes best-effort de Partidos y Logística — está en el
-roadmap del dominio.
+La auditoría no es un servicio centralizado propio: cada microservicio expone
+su propio log de eventos (p. ej. TC-12 en Identidad, TC-23 en Equipos, TC-40
+en Torneos, TC-73 en Logística), consultable por los roles autorizados.
 
 ## Infraestructura transversal
 

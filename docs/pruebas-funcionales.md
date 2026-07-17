@@ -37,16 +37,15 @@ prueba de cada repositorio en vez de duplicarlo.
 
 ## 3. Matriz de trazabilidad
 
-| Dominio | Rango de requerimientos | Repositorio | Documentación de pruebas |
+| Dominio | Requerimientos oficiales | Repositorios | Documentación de pruebas |
 |---|---|---|---|
-| <span class="tc-badge tc-badge-cc">CC</span> | TC-01 – TC-19 | cc-users-players-service | `docs/pruebas.md` del repo |
-| <span class="tc-badge tc-badge-cc">CC</span> | TC-20 – TC-28 | cc-teams-service | `docs/pruebas.md` del repo |
-| <span class="tc-badge tc-badge-mk">MK</span> | TC-29 – TC-54 | mk-tournament-service | `docs/testing.md` del repo |
-| <span class="tc-badge tc-badge-mk">MK</span> | RF-01 – RF-07+ | mk-payment-service | `docs/testing.md` del repo |
-| <span class="tc-badge tc-badge-am">AM</span> | RF-01 – RF-12 | am-matches-service | `./mvnw test` — sanciones, marcador en vivo, cronómetro, subida de planilla |
-| <span class="tc-badge tc-badge-am">AM</span> | RF-01 – RF-05 | am-logistic-service | `./mvnw test` + verificación end-to-end manual documentada en el README |
-| <span class="tc-badge tc-badge-am">AM</span> | RF-01 – RF-07 | am-notification-service | `./mvnw test` — un test por listener de evento + reglas de `NotificationService` |
-| <span class="tc-badge tc-badge-ga">GA</span> | RF1 – RF15 | ga-statistics-service | JUnit 5 + Mockito + AssertJ, cobertura 97% |
+| <span class="tc-badge tc-badge-cc">CC</span> Identidad y Usuarios | TC-01 – TC-28 | cc-identity-service, cc-users-players-service, cc-teams-service | `docs/pruebas.md` de cada repo |
+| <span class="tc-badge tc-badge-mk">MK</span> Torneos y Pagos | TC-29 – TC-56 | mk-tournament-service, mk-payment-service | `docs/testing.md` de cada repo |
+| <span class="tc-badge tc-badge-am">AM</span> Partidos, Logística y Comunicación | TC-57 – TC-88 | am-matches-service, am-logistic-service, am-notification-service, am-communication-service | `./mvnw test` en cada repo — sanciones, marcador en vivo, cronómetro, listeners de evento |
+| <span class="tc-badge tc-badge-ga">GA</span> Analítica y Auditoría | TC-89 – TC-108 | ga-statistics-service | JUnit 5 + Mockito + AssertJ, cobertura 97% |
+
+Ver [Análisis de Requerimientos](analisis-requerimientos.md) para el detalle
+de cada uno de los 108 requerimientos.
 
 !!! note "Casos de prueba detallados"
     El detalle caso a caso (precondiciones, pasos, resultado esperado) vive
@@ -56,10 +55,10 @@ prueba de cada repositorio en vez de duplicarlo.
 ## 4. Casos de prueba
 
 Los casos de prueba unitarios y de integración de cada servicio viven en su
-propio repositorio (ver matriz de trazabilidad). Los casos de prueba
-end-to-end que crucen más de un servicio (p. ej. inscripción de equipo → pago
-PSE → confirmación) se documentarán aquí a nivel de plataforma conforme se
-definan junto con los equipos dueños de cada servicio involucrado.
+propio repositorio (ver matriz de trazabilidad). Los flujos end-to-end que
+cruzan varios servicios (por ejemplo, inscripción de equipo → pago PSE →
+confirmación) se coordinan entre los equipos dueños de cada servicio
+involucrado.
 
 ## 5. Historial de cambios
 
