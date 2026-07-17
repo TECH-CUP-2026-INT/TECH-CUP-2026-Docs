@@ -51,6 +51,16 @@ en vez de delegarla a un servicio de auditoría centralizado.
 
 ## 4. Vista de componentes
 
+[![Diagrama de componentes de TECH CUP 2026](assets/img/diagrama-componentes.png)](assets/img/diagrama-componentes.png)
+*Clic en la imagen para verla a tamaño completo.*
+
+El ecosistema backend expone un único **API Gateway** hacia los clientes web
+y móvil. Cada servicio tiene su propia base de datos (MongoDB o PostgreSQL) y
+publica eventos hacia un **Broker de Estadísticas** y un **Broker de
+Notificaciones** compartidos. Las integraciones externas incluyen Google
+Auth API (login social), Mercado Pago API (pagos PSE) y un servidor de
+correo (notificaciones por email).
+
 | Componente / Repositorio | Responsabilidad | Tecnología |
 |---|---|---|
 | [TECH-CUP-FRONT](https://github.com/TECH-CUP-2026-INT/TECH-CUP-FRONT) | Interfaz de usuario | React 19 + TypeScript + Vite + Tailwind CSS |
@@ -68,6 +78,18 @@ en vez de delegarla a un servicio de auditoría centralizado.
 | [TECH-CUP-Observability](https://github.com/TECH-CUP-2026-INT/TECH-CUP-Observability) | Observabilidad (métricas, trazas, logs) | Docker Compose + Prometheus + Grafana + Zipkin + ELK |
 
 ## 5. Vista de despliegue
+
+[![Diagrama de despliegue de TECH CUP 2026](assets/img/diagrama-despliegue.png)](assets/img/diagrama-despliegue.png)
+*Clic en la imagen para verla a tamaño completo.*
+
+La aplicación web se despliega en **Azure** (Service Admin) y llega a los
+microservicios a través del **API Gateway**. Los servicios se distribuyen en
+distintas regiones de Azure según su dominio: Central Mexico (Identidad,
+Usuarios, Equipos, Partidos, Comunicaciones), Canada (Torneos), South Brazil
+(Pagos), East US (Estadísticas) y US West 2 (Notificaciones, Logística). Cada
+servicio persiste en su propia base de datos (MongoDB o Azure Database for
+PostgreSQL), y los brokers de notificaciones y estadísticas (RabbitMQ)
+conectan a los servicios entre regiones.
 
 - **Desarrollo local:** cada microservicio se levanta con Docker Compose
   (aplicación + su base de datos), documentado en el README de su propio
@@ -124,3 +146,4 @@ acoplarse a un generador de IDs numérico de otro servicio.
 | 0.1 | | | Versión inicial |
 | 0.2 | 2026-07-17 | | Vista de componentes, ADR y atributos de calidad completados a partir de la documentación real de cada repositorio |
 | 0.3 | 2026-07-17 | | Vista de despliegue completada; modelo de auditoría por servicio alineado al catálogo oficial de requerimientos |
+| 0.4 | 2026-07-17 | | Se agregan los diagramas de componentes y de despliegue |
